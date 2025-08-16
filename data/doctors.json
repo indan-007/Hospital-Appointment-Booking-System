@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Evelyn Reed",
+    "specialty": "Cardiology",
+    "hospital": "City General Hospital",
+    "rating": 4.8,
+    "languages": ["English", "Spanish"],
+    "profile_img": "https://i.pravatar.cc/150?img=1",
+    "bio": "Dr. Reed is a board-certified cardiologist with over 15 years of experience in treating heart conditions. She is known for her patient-centered approach and dedication to cardiovascular research."
+  },
+  {
+    "id": 2,
+    "name": "Dr. Kenji Tanaka",
+    "specialty": "Pediatrics",
+    "hospital": "St. Jude's Children's Hospital",
+    "rating": 4.9,
+    "languages": ["English", "Japanese"],
+    "profile_img": "https://i.pravatar.cc/150?img=2",
+    "bio": "Dr. Tanaka is a compassionate pediatrician who has dedicated his career to the health and well-being of children. He has a special interest in developmental pediatrics."
+  },
+  {
+    "id": 3,
+    "name": "Dr. Sofia Rossi",
+    "specialty": "Dermatology",
+    "hospital": "City General Hospital",
+    "rating": 4.7,
+    "languages": ["English", "Italian", "French"],
+    "profile_img": "https://i.pravatar.cc/150?img=3",
+    "bio": "Dr. Rossi is a renowned dermatologist specializing in cosmetic and medical dermatology. She stays up-to-date with the latest technologies to provide the best care."
+  },
+  {
+    "id": 4,
+    "name": "Dr. Marcus Holloway",
+    "specialty": "Neurology",
+    "hospital": "Oakwood Medical Center",
+    "rating": 4.6,
+    "languages": ["English"],
+    "profile_img": "https://i.pravatar.cc/150?img=4",
+    "bio": "Dr. Holloway is a neurologist with expertise in treating complex neurological disorders. He is a strong advocate for his patients and is involved in clinical trials."
+  }
+]
