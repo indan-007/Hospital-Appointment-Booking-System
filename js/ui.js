@@ -52,7 +52,9 @@ export function renderDoctorList(doctors) {
     if (!doctorListContainer) return;
 
     if (doctors.length === 0) {
-        doctorListContainer.innerHTML = `<p class="text-gray-500 col-span-full text-center py-10">No doctors found matching your criteria.</p>`;
+        doctorListContainer.innerHTML = `<div class="col-span-full text-center py-10" role="status">
+            <p class="text-gray-500">No doctors found matching your criteria.</p>
+        </div>`;
         return;
     }
 
@@ -96,7 +98,7 @@ export function renderDrawerContent(doctor) {
 
     drawerContent.innerHTML = `
         <div class="flex items-center mb-6">
-            <img class="w-20 h-20 rounded-full mr-4 object-cover" src="${doctor.profile_img}" alt="">
+            <img class="w-20 h-20 rounded-full mr-4 object-cover" src="${doctor.profile_img}" alt="Profile image of ${doctor.name}">
             <div>
                 <h2 class="text-2xl font-bold text-gray-900 sr-only">${doctor.name}</h2>
                 <p class="text-md text-primary">${doctor.specialty}</p>
