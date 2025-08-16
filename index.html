@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Booking System</title>
+    <meta name="description" content="A modern, accessible, and static hospital booking system.">
+
+    <!-- CSP Meta Tag -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' https://i.pravatar.cc data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="images/icons-192.png">
+
+    <script>
+      // Tailwind CSS configuration
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#3367D6',
+              secondary: '#4285F4',
+            }
+          }
+        }
+      }
+    </script>
+
+</head>
+<body class="h-full">
+    <div id="app" class="flex flex-col min-h-screen">
+
+        <!-- Header -->
+        <header class="bg-primary shadow-md">
+            <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <a href="/" class="text-white text-xl font-bold">MediBook</a>
+                    </div>
+                    <div class="flex items-center">
+                        <button id="admin-mode-btn" class="text-white hover:bg-secondary px-3 py-2 rounded-md text-sm font-medium">Admin</button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
+            <h1 class="text-2xl font-bold text-gray-900 sr-only">Find and Book Your Doctor</h1>
+
+            <!-- Search and Filters -->
+            <div id="search-filter-section" class="mb-8 p-6 bg-white rounded-lg shadow">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Search Input -->
+                    <div class="lg:col-span-2">
+                        <label for="search-doctor" class="block text-sm font-medium text-gray-700">Search by name or specialty</label>
+                        <input type="search" id="search-doctor" placeholder="e.g., Dr. Reed or Cardiology" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                    </div>
+                    <!-- Specialty Filter -->
+                    <div>
+                        <label for="filter-specialty" class="block text-sm font-medium text-gray-700">Specialty</label>
+                        <select id="filter-specialty" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            <option>All Specialties</option>
+                            <!-- Options will be populated by JS -->
+                        </select>
+                    </div>
+                    <!-- Hospital Filter -->
+                    <div>
+                        <label for="filter-hospital" class="block text-sm font-medium text-gray-700">Hospital</label>
+                        <select id="filter-hospital" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            <option>All Hospitals</option>
+                             <!-- Options will be populated by JS -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor List -->
+            <div id="doctor-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Doctor cards will be rendered here by JS -->
+                <p>Loading doctors...</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white text-center p-4">
+            <p>&copy; 2025 MediBook. All rights reserved.</p>
+        </footer>
+
+        <!-- Doctor Details Drawer -->
+        <div id="doctor-drawer" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden" aria-labelledby="drawer-title" role="dialog" aria-modal="true">
+            <div class="absolute inset-y-0 right-0 max-w-full flex">
+                <div class="w-screen max-w-md">
+                    <div class="h-full flex flex-col bg-white shadow-xl">
+                        <!-- Drawer content will be populated by JS -->
+                        <div class="p-6">
+                            <h2 id="drawer-title" class="text-lg font-medium text-gray-900">Doctor Details</h2>
+                            <button id="close-drawer-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-500">
+                                <span class="sr-only">Close panel</span>
+                                &times;
+                            </button>
+                        </div>
+                        <div id="drawer-content" class="flex-1 overflow-y-auto p-6">
+                            <!-- JS will populate this -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Modal Placeholder -->
+        <div id="booking-modal" class="hidden"></div>
+
+        <!-- Admin Passphrase Modal -->
+        <div id="admin-passphrase-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden" role="dialog" aria-modal="true">
+             <div class="flex items-center justify-center min-h-screen">
+                <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-sm">
+                    <h3 class="text-lg font-bold mb-4">Admin Access</h3>
+                    <input type="password" id="admin-passphrase-input" class="w-full border rounded p-2" placeholder="Enter passphrase">
+                    <div class="mt-4 flex justify-end space-x-2">
+                        <button id="admin-passphrase-cancel" class="px-4 py-2 rounded bg-gray-200">Cancel</button>
+                        <button id="admin-passphrase-submit" class="px-4 py-2 rounded bg-primary text-white">Submit</button>
+                    </div>
+                </div>
+             </div>
+        </div>
+
+    </div>
+
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
