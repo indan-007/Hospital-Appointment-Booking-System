@@ -1,5 +1,14 @@
 # MediBook: A Static Hospital Booking System
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+<div>
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/pwa-%235A0FC8.svg?style=for-the-badge&logo=pwa&logoColor=white" alt="PWA" />
+</div>
+
 MediBook is a modern, fully static, and accessible hospital booking system built with vanilla JavaScript, Tailwind CSS, and IndexedDB. It functions as a Progressive Web App (PWA) and is designed to be fast, reliable, and installable on user devices, even working offline for core functionalities.
 
 This project demonstrates how to build a feature-rich, client-side application without a backend server, using modern web technologies.
